@@ -15,6 +15,6 @@ for who in $who_values; do
 
         # Run insert.py with different parameters and log the output
         output=$(python3 insert_berkeley.py $who $speed)
-        echo "$who $speed $output" >> output_sqlite_insert.txt
+        echo "$who $speed $output" >> output_berkleley_insert.txt
     done
 done
