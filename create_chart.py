@@ -31,7 +31,7 @@ def create_comparison_charts(file_path1, file_path2):
 
 
 if __name__ == "__main__":
-    file1_path = 'output_berkleley_insert.txt'
-    file2_path = 'output_sqlite_insert.txt'
+    file1_path = 'output_sqlite_insert.txt'
+    file2_path = 'output_berkleley_insert.txt'
     
     create_comparison_charts(file1_path, file2_path)
