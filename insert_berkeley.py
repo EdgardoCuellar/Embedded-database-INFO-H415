@@ -24,10 +24,16 @@ def insert_data_from_csv(db_path, csv_path, columns, insertion_speed, who):
                 timestamp = row['timestamp']
                 values = ','.join([row[column] for column in columns])
 
+                start_time = time.time()
+
                 insert_row_gps(db, timestamp, values, who)
 
-                if insertion_speed > 0.00001:
-                    time.sleep(insertion_speed)
+                end_time = time.time()
+                time_taken = end_time - start_time
+
+                if insertion_speed > time_taken:
+                    sleep_duration = insertion_speed - time_taken
+                    time.sleep(sleep_duration)
 
     finally:
         # Close Berkeley DB connections

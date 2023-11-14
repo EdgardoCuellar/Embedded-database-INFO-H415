@@ -25,13 +25,19 @@ def insert_data_from_csv(db_path, csv_path, columns, insertion_speed, who):
             for row in reader:
                 data_row = [row[column] for column in columns]
 
+                start_time = time.time()
+
                 if who == 0:
                     insert_row_gps(cursor, columns, data_row)
                 elif who == 1:
                     insert_row_gps_left(cursor, columns, data_row)
 
-                if insertion_speed > 0.00001:
-                    time.sleep(insertion_speed)
+                end_time = time.time()
+                time_taken = end_time - start_time
+
+                if insertion_speed > time_taken:
+                    sleep_duration = insertion_speed - time_taken
+                    time.sleep(sleep_duration)
 
                 connection.commit()
     finally:
