@@ -31,7 +31,7 @@ def select_by_acc_x(cursor, table_name, threshold):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(f"Select by acc_x_dashboard query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 def select_by_acc_y(cursor, table_name, threshold):
     query = f'SELECT timestamp FROM {table_name} WHERE acc_y_dashboard > {threshold};'
@@ -39,7 +39,7 @@ def select_by_acc_y(cursor, table_name, threshold):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(f"Select by acc_y_dashboard query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 
 def main():

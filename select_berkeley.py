@@ -17,7 +17,7 @@ def count_rows(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"Count rows query took {end_time - start_time} seconds. Result: {count} rows")
+    print(f"Result: {count} rows")
 
 def select_all(db, table_name):
     start_time = time.time()
@@ -35,7 +35,7 @@ def select_all(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"Select all query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 def select_by_latitude(db, table_name):
     start_time = time.time()
@@ -53,7 +53,7 @@ def select_by_latitude(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"Select by latitude query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 def select_by_acc_x(db, table_name, threshold):
     start_time = time.time()
@@ -73,7 +73,7 @@ def select_by_acc_x(db, table_name, threshold):
         cursor.close()
 
     end_time = time.time()
-    print(f"Select by acc_x_dashboard query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 def select_by_acc_y(db, table_name, threshold):
     start_time = time.time()
@@ -93,7 +93,7 @@ def select_by_acc_y(db, table_name, threshold):
         cursor.close()
 
     end_time = time.time()
-    print(f"Select by acc_y_dashboard query took {end_time - start_time} seconds. Result: {len(rows)} rows")
+    print(f"Result: {len(rows)} rows")
 
 
 def main():
