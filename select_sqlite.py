@@ -7,6 +7,7 @@ def count_rows(cursor, table_name):
     start_time = time.time()
     cursor.execute(query)
     count = cursor.fetchone()[0]
+    print(f"count_rows: {count} rows")
     end_time = time.time()
     print(end_time - start_time)
 
