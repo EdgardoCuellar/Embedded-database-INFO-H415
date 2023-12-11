@@ -1,0 +1,19 @@
+0
+count_rows time : 0.00011086463928222656
+
+select_all time : 3.337860107421875e-06
+select_all: 0 rows
+
+select_by_latitude time : 1.430511474609375e-06
+select_by_latitude: 0 rows
+1
+count_rows time : 0.0008177757263183594
+
+select_all time : 7.867813110351562e-06
+select_all: 0 rows
+
+select_by_acc_x time : 1.430511474609375e-06
+select_by_acc_x: 0 rows
+
+select_by_acc_y time : 1.430511474609375e-06
+select_by_acc_y: 0 rows

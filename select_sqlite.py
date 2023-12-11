@@ -9,7 +9,7 @@ def count_rows(cursor, table_name):
     count = cursor.fetchone()[0]
     print(f"count_rows: {count} rows")
     end_time = time.time()
-    print(end_time - start_time)
+    print(f"count_rows time : {end_time} - {start_time}\n")
 
 def select_all(cursor, table_name):
     query = f'SELECT * FROM {table_name};'
@@ -17,8 +17,8 @@ def select_all(cursor, table_name):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(end_time - start_time)
-    print(f"select_all: {len(rows)} rows")
+    print(f"select_all time : {end_time} - {start_time}")
+    print(f"select_all: {len(rows)} rows\n")
 
 def select_by_latitude(cursor, table_name):
     query = f'SELECT timestamp FROM {table_name} WHERE latitude = (SELECT latitude FROM {table_name} WHERE rowid = (SELECT rowid + 1 FROM {table_name}));'
@@ -26,8 +26,8 @@ def select_by_latitude(cursor, table_name):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(end_time - start_time)
-    print(f"select_by_latitude: {len(rows)} rows")
+    print(f"select_by_latitude time : {end_time} - {start_time}")
+    print(f"select_by_latitude: {len(rows)} rows\n")
 
 def select_by_acc_x(cursor, table_name, threshold):
     query = f'SELECT timestamp FROM {table_name} WHERE acc_x_dashboard > {threshold};'
@@ -35,8 +35,8 @@ def select_by_acc_x(cursor, table_name, threshold):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(end_time - start_time)
-    print(f"select_by_acc_x: {len(rows)} rows")
+    print(f"select_by_acc_x time : {end_time} - {start_time}")
+    print(f"select_by_acc_x: {len(rows)} rows\n")
 
 def select_by_acc_y(cursor, table_name, threshold):
     query = f'SELECT timestamp FROM {table_name} WHERE acc_y_dashboard > {threshold};'
@@ -44,8 +44,8 @@ def select_by_acc_y(cursor, table_name, threshold):
     cursor.execute(query)
     rows = cursor.fetchall()
     end_time = time.time()
-    print(end_time - start_time)
-    print(f"select_by_acc_y: {len(rows)} rows")
+    print(f"select_by_acc_y time : {end_time} - {start_time}")
+    print(f"select_by_acc_y: {len(rows)} rows\n")
 
 
 def main():
