@@ -1,4 +1,0 @@
-0 0.00000001 Data ['timestamp', 'latitude', 'longitude', 'elevation', 'accuracy'] has been added
-0.11738038063049316
-1 0.00000001 Data ['timestamp', 'acc_x_dashboard', 'acc_y_dashboard', 'acc_z_dashboard'] has been added
-33.066246032714844

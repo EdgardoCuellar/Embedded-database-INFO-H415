@@ -21,21 +21,21 @@ def create_histogram(file_path):
     width = 0.35  # Width of the bars
 
     # Create side-by-side histograms
-    plt.bar(x, values_A, width, label='Value A')
-    plt.bar([i + width for i in x], values_B, width, label='Value B')
+    plt.bar(x, values_A, width, label='Sqlite')
+    plt.bar([i + width for i in x], values_B, width, label='Berkeley DB')
 
     # Add labels and title
     plt.xlabel('Pairs')
     plt.ylabel('Values')
-    plt.title('Comparison of Value A and Value B')
+    plt.title('GPS LEFT select comparaison 144036 rows')
     plt.xticks([i + width / 2 for i in x], labels)
 
     # Add legend
     plt.legend()
 
     # Show the plot
-    plt.savefig('histogram.png')
+    plt.savefig('histogram_gps_left.png')
     plt.show()
 
 # Example usage with a file named 'data.txt'
-create_histogram('output_gps.txt')
+create_histogram('select_gps_left.txt')

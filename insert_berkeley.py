@@ -34,7 +34,6 @@ def insert_data_from_csv(db_path, csv_path, columns, insertion_speed, who):
                 if insertion_speed > time_taken:
                     sleep_duration = insertion_speed - time_taken
                     time.sleep(sleep_duration)
-            print(f"Data {columns} has been added")
 
     finally:
         # Close Berkeley DB connections

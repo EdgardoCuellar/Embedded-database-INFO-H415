@@ -9,7 +9,7 @@ def count_rows(db, table_name):
     try:
         cursor = db.cursor()
         key = f"{table_name}_"
-        if cursor.set_range(key.encode('utf-8')):
+        if cursor.set(key.encode('utf-8')) and key.encode('utf-8').startswith(cursor.key()):
             while key.encode('utf-8').startswith(f"{table_name}_".encode('utf-8')):
                 count += 1
                 if not cursor.next():
@@ -18,7 +18,8 @@ def count_rows(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"count_rows time : {end_time-start_time}\n")
+    print(end_time - start_time)
+    print(f"count_rows: {count} rows")
 
 def select_all(db, table_name):
     start_time = time.time()
@@ -26,7 +27,7 @@ def select_all(db, table_name):
     try:
         cursor = db.cursor()
         key = f"{table_name}_"
-        if cursor.set_range(key.encode('utf-8')):
+        if cursor.set_range(key.encode('utf-8')) and key.encode('utf-8').startswith(cursor.key()):
             while key.encode('utf-8').startswith(f"{table_name}_".encode('utf-8')):
                 timestamp, values = key[len(table_name) + 1:].split("_", 1)
                 rows.append((timestamp, values))
@@ -36,8 +37,8 @@ def select_all(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"select_all time : {end_time-start_time}")
-    print(f"select_all: {len(rows)} rows\n")
+    print(end_time - start_time)
+    print(f"select_all: {len(rows)} rows")
 
 def select_by_latitude(db, table_name):
     start_time = time.time()
@@ -45,7 +46,7 @@ def select_by_latitude(db, table_name):
     try:
         cursor = db.cursor()
         key = f"{table_name}_"
-        if cursor.set_range(key.encode('utf-8')):
+        if cursor.set_range(key.encode('utf-8')) and key.encode('utf-8').startswith(cursor.key()):
             while key.encode('utf-8').startswith(f"{table_name}_".encode('utf-8')):
                 timestamp, values = key[len(table_name) + 1:].split("_", 1)
                 rows.append((timestamp, values))
@@ -55,8 +56,8 @@ def select_by_latitude(db, table_name):
         cursor.close()
 
     end_time = time.time()
-    print(f"select_by_latitude time : {end_time-start_time}")
-    print(f"select_by_latitude: {len(rows)} rows\n")
+    print(end_time - start_time)
+    print(f"select_by_latitude: {len(rows)} rows")
 
 def select_by_acc_x(db, table_name, threshold):
     start_time = time.time()
@@ -64,7 +65,7 @@ def select_by_acc_x(db, table_name, threshold):
     try:
         cursor = db.cursor()
         key = f"{table_name}_"
-        if cursor.set_range(key.encode('utf-8')):
+        if cursor.set_range(key.encode('utf-8')) and key.encode('utf-8').startswith(cursor.key()):
             while key.encode('utf-8').startswith(f"{table_name}_".encode('utf-8')):
                 timestamp, values = key[len(table_name) + 1:].split("_", 1)
                 acc_x_value = float(values.split(",")[1])  # Assuming acc_x_dashboard is the second value
@@ -76,8 +77,8 @@ def select_by_acc_x(db, table_name, threshold):
         cursor.close()
 
     end_time = time.time()
-    print(f"select_by_acc_x time : {end_time-start_time}")
-    print(f"select_by_acc_x: {len(rows)} rows\n")
+    print(end_time - start_time)
+    print(f"select_by_acc_x: {len(rows)} rows")
 
 def select_by_acc_y(db, table_name, threshold):
     start_time = time.time()
@@ -85,7 +86,7 @@ def select_by_acc_y(db, table_name, threshold):
     try:
         cursor = db.cursor()
         key = f"{table_name}_"
-        if cursor.set_range(key.encode('utf-8')):
+        if cursor.set_range(key.encode('utf-8')) and key.encode('utf-8').startswith(cursor.key()):
             while key.encode('utf-8').startswith(f"{table_name}_".encode('utf-8')):
                 timestamp, values = key[len(table_name) + 1:].split("_", 1)
                 acc_y_value = float(values.split(",")[2])  # Assuming acc_y_dashboard is the third value
@@ -97,9 +98,8 @@ def select_by_acc_y(db, table_name, threshold):
         cursor.close()
 
     end_time = time.time()
-    print(f"select_by_acc_y time : {end_time-start_time}")
-    print(f"select_by_acc_y: {len(rows)} rows\n")
-
+    print(end_time - start_time)
+    print(f"select_by_acc_y: {len(rows)} rows")
 
 def main():
     db_path = "./berkeley_db"
