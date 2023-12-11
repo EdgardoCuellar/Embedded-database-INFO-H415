@@ -9,7 +9,7 @@ cp sqlite_empty.db sqlite.db
 # Loop through combinations of "who"
 for who in $who_values; do
 
-    $(python3 insert_sqlite.py $who 0.00000000001)
+    python3 insert_sqlite.py $who 0.00000000001
 
     # Run select.py with different parameters and log the output
     output=$(python3 select_sqlite.py $who)
