@@ -1,6 +1,7 @@
 import bsddb3
 import time
 import os
+import sys
 
 def count_rows(db, table_name):
     start_time = time.time()

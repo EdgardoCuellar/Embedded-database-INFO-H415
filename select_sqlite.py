@@ -1,5 +1,6 @@
 import sqlite3
 import time
+import sys
 
 def count_rows(cursor, table_name):
     query = f'SELECT COUNT(*) FROM {table_name};'
