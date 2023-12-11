@@ -9,7 +9,6 @@ def count_rows(cursor, table_name):
     count = cursor.fetchone()[0]
     end_time = time.time()
     print(end_time - start_time)
-    print(f"count_rows: {len(rows)} rows")
 
 def select_all(cursor, table_name):
     query = f'SELECT * FROM {table_name};'

@@ -19,7 +19,6 @@ def count_rows(db, table_name):
 
     end_time = time.time()
     print(end_time - start_time)
-    print(f"count_rows: {len(rows)} rows")
 
 def select_all(db, table_name):
     start_time = time.time()
