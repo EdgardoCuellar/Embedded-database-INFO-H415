@@ -4,7 +4,7 @@
 who_values="0 1"
 
 # Copy a fresh empty SQLite database
-cp -r berkeley_db_empty berkeley_db
+cp -r berkeley_db_empty.db berkeley_db.db 
 
 # Loop through combinations of "who"
 for who in $who_values; do
@@ -13,4 +13,5 @@ for who in $who_values; do
     # Run select.py with different parameters and log the output
     output=$(python3 select_berkeley.py $who)
     echo "$who $speed $output" >> output_berkeley_select.txt
+
 done

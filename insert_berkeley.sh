@@ -8,10 +8,10 @@ speed_values="0.01 0.001 0.0001 0.00000001"
 for who in $who_values; do
     for speed in $speed_values; do
         # Delete existing SQLite database file
-        rm -r berkeley_db
+        rm -r berkeley_db.db 
 
         # Copy a fresh empty SQLite database
-        cp -r berkeley_db_empty berkeley_db
+        cp -r berkeley_db_empty.db  berkeley_db.db 
 
         # Run insert.py with different parameters and log the output
         output=$(python3 insert_berkeley.py $who $speed)
